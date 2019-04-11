@@ -14,7 +14,7 @@
      mode: 0440
   - name: install epel rpm from a local file
     yum:
-     name: /ec2-user/epel-release-latest-7.noarch.rpm
+     name: /root/epel-release-latest-7.noarch.rpm
      state: present
   - name: install Zabbix rpm from a local file
     yum:

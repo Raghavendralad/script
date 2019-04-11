@@ -21,4 +21,5 @@
      state: latest
   - name: copy zabbix configuration file
     copy: src=/etc/zabbix/zabbix_agentd.conf dest=/etc/zabbix_agentd.conf
- 
+  - name: restart Zabbix Service
+    service: name=zabbix-agent state=started enabled=yes

@@ -19,4 +19,6 @@
     yum: 
      name: zabbix22-agent 
      state: latest
+  - name: copy zabbix configuration file
+    copy: src=/etc/zabbix/zabbix_agentd.conf dest=/etc/zabbix_agentd.conf
  

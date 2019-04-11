@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+  - name: Download epel.repo
+    get_url:
+     url: http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+     dest: /home/ec2-user/epel-release-latest-7.noarch.rpm
+     mode: 0440
+  - name: install epel rpm from a local file
+    yum:
+     name: /home/ec2-user/epel-release-latest-7.noarch.rpm
+     state: present
+  - name: install php repo
+    yum:
+     name: https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
+     state: present
+  - name: install zabbix-agent
+    yum: 
+     name: zabbix22-agent 
+     state: latest
+ 

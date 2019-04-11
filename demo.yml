@@ -4,8 +4,8 @@
   tasks: 
   - name: Download epel.repo
     get_url:
-     url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
-     dest: /root/epel-release-latest-6.noarch.rpm
+     url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+     dest: /root/epel-release-latest-7.noarch.rpm
      mode: 0440
   - name: Download Zabbix Repo
     get_url:

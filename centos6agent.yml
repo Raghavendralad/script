@@ -1,0 +1,22 @@
+---
+- hosts: all
+  become: true
+  tasks: 
+  - name: Download epel.repo
+    get_url:
+     url: https://dl.fedoraproject.org/pub/epel/epel-release-latest-6.noarch.rpm
+     dest: /root/epel-release-latest-6.noarch.rpm
+     mode: 0440
+  - name: Download Zabbix Repo
+    get_url:
+     url: http://repo.zabbix.com/zabbix/4.0/rhel/6/x86_64/zabbix-release-4.0-1.el6.noarch.rpm
+     dest: /root/zabbix-release-4.0-1.el6.noarch.rpm
+     mode: 0440
+  - name: install epel rpm from a local file
+    yum:
+     name: /root/epel-release-latest-6.noarch.rpm
+     state: present
+  - name: install Zabbix rpm from a local file
+    yum:
+     name: /root/zabbix-release-4.0-1.el6.noarch.rpm
+     state: present

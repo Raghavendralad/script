@@ -20,3 +20,11 @@
     yum:
      name: /root/zabbix-release-4.0-1.el6.noarch.rpm
      state: present
+  - name: install zabbix-agent
+    yum: 
+     name: zabbix-agent 
+     state: latest
+  - name: copy zabbix configuration file
+    copy: src=/etc/zabbix/zabbix_agentd.conf dest=/etc/zabbix/zabbix_agentd.conf remote_src=yes
+  - name: restart Zabbix Service
+    service: name=zabbix-agent state=restarted enabled=yes
